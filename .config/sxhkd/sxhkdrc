@@ -1,0 +1,128 @@
+# My sxhd config n' shit
+# Oakley
+
+# Reload sxhkd
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# --WM Binds--
+
+
+# Quit BSPWM
+super + q
+	bspc quit
+
+
+# Restart BSPWM
+super + r
+	bspc wm -r
+
+
+# Close Focused Window
+super + x
+	bspc node -c
+
+
+# Swap current window with biggest window
+super + g
+	bspc node -s biggest
+
+
+# Go Fullscreen on current window
+super + f
+	bspc node -t \~fullscreen
+	
+
+
+# --Window State and Flag Binds--
+
+
+# Change Window State
+super +	ctrl +  {t,s,f)
+	bspc node -t {tiled,pseudo_tiled,floating}
+
+
+# Set Window Flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+
+# --Navigation Binds--
+
+
+# Focus Windows
+super + {w,a,s,d}
+	bspc node -f {north,west,south,east}
+
+
+# Focus Desktops
+super + {1,2,3,4,5,6,7,8,9,0}
+	bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+
+
+# --Move and Resize Binds--
+
+
+
+# Expand focused window
+super + alt + {w,a,s,d}
+	bspc node -z {top -20 0,left 0 20,bottom 0 -20,right 20 0}
+
+
+
+# Shrink focused window
+super + Tab + {w,a,s,d}
+	bspc node -z {top 20 0,left 0 -20,bottom 0 20,right -20 0}
+ 
+
+# Move a focused floating window
+super + ctrl + {w,a,s,d}
+	bspc node -v {-20,-20 0,0 20 0}
+
+
+
+# --Application Binds--
+
+
+
+# Open Terminal
+super + grave
+	st
+
+
+# Open Dmenu
+super + y
+	dmenu_run
+
+
+# Open Steam
+super + u
+	steam
+
+
+# Open Firefox
+super + o
+	firefox
+
+
+# Open Stremio
+super + p
+	flatpak run com.stremio.Stremio
+
+
+# Open Discord
+super + l
+	Discord
+
+
+# Open Blender
+super + m
+	blender
+
+
+
+# Screenshot
+super + Print
+	 maim ~/Pictures/$(date +%s).png
